@@ -14,16 +14,16 @@ var (
 
 // Константы для кодов клавиш
 const (
-	VK_F10   = 0x79
-	VK_SPACE = 0x20
+	VK_F10 = 0x79
+	VK_F   = 0x46
 )
 
-func pressSpace() {
+func pressF() {
 	// Key down (пробел = 0x20)
-	keybdEvent.Call(uintptr(VK_SPACE), 0, 0, 0)
+	keybdEvent.Call(uintptr(VK_F), 0, 0, 0)
 	time.Sleep(10 * time.Millisecond)
 	// Key up
-	keybdEvent.Call(uintptr(VK_SPACE), 0, 2, 0)
+	keybdEvent.Call(uintptr(VK_F), 0, 2, 0)
 }
 
 // isKeyPressed проверяет, нажата ли указанная клавиша
@@ -60,7 +60,7 @@ func main() {
 
 		// Если не на паузе, нажимаем пробел
 		if !paused {
-			pressSpace()
+			pressF()
 		}
 
 		// Ждем немного перед следующей итерацией
